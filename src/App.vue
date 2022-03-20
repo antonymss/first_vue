@@ -1,17 +1,18 @@
 <template>
   <div class="app">
-    <post-form/>
-    <post-list :posts="posts"/>
+    <post-form @create="createPost"/>
+    <post-list :posts="posts"  />
   </div>
 </template>
 
 <script>
-import PostForm from "@/components/PostForm.vue"
-import PostList from "@/components/PostList.vue"
+import PostForm from "@/components/PostForm.vue";
+import PostList from "@/components/PostList.vue";
 
 export default {
-  components:{
-    PostList, PostForm
+  components: {
+    PostList,
+    PostForm,
   },
   data() {
     return {
@@ -20,12 +21,12 @@ export default {
         { id: 2, title: "JS 2", body: "description" },
         { id: 3, title: "JS 3", body: "description" },
       ],
-      
     };
   },
   methods: {
-    createPost() {
-     
+    createPost(post) {
+      this.posts.push(post)
+    },
   },
 };
 </script>
@@ -38,6 +39,4 @@ export default {
 .app {
   padding: 20px;
 }
-
-
 </style>

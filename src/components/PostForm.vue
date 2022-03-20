@@ -13,11 +13,15 @@
       type="text"
       placeholder="Описание"
     />
-    <button class="btn" @click="createPost">Создание поста</button>
+    <my-button style="align-self: flex-end; margin-top: 15px"  @click="createPost">
+      Создание поста
+    </my-button>
   </form>
 </template>
 <script>
+
 export default {
+
   data() {
     return {
       post: {
@@ -26,19 +30,17 @@ export default {
       },
     };
   },
-  methods:{
-    createPost(){
-       this.post.id = Date.now()
-this.$emit('create', this.post)
-     this.post = {
-       title: '',
-       body: ''
-     }
+  methods: {
+    createPost() {
+      this.post.id = Date.now();
+      this.$emit("create", this.post);
+      this.post = {
+        title: "",
+        body: "",
+      };
     },
-    }
-  }
+  },
 };
-
 </script>
 <style>
 form {
@@ -50,13 +52,5 @@ form {
   border: 1px solid teal;
   padding: 10px 15px;
   margin-top: 15px;
-}
-.btn {
-  align-self: flex-end;
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
 }
 </style>
