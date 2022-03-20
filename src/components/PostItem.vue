@@ -1,25 +1,23 @@
 <template>
-  <div class="post" >
+  <div class="post">
     <div>
-<div><strong>Название:</strong> {{ post.title }}</div>
+      <div><strong>Название:</strong> {{ post.title }}</div>
       <div><strong>Описание:</strong> {{ post.body }}</div>
     </div>
-      <div class= 'post__btns'>
-<my-button >удалить</my-button>
-      </div>
+    <div class="post__btns">
+      <my-button @click="$emit('remove', post)">удалить</my-button>
     </div>
+  </div>
 </template>
 <script>
-
 export default {
-
- props:{
-   post:{
-     type: Object,
-     required: true
-   }
- }
-}
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 <style scoped>
 .post {
